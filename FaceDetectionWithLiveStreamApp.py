@@ -26,7 +26,7 @@ font_scale = 0.5
 font_thickness = 1
 
 run= st.checkbox("Run")
-s = cv2.CAP_V4L2 # Use web camera.
+s = 0 # Use web camera.
 video_cap = cv2.VideoCapture(s)
 win_name = 'Live Detect Faces'
 
