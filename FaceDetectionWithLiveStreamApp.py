@@ -4,6 +4,7 @@ import streamlit as st
 
 one_time_run = 0
 
+
 st.title("Human Face Detection in Live Stream")
 FRAME_WINDOW = st.image([])
 
