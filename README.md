@@ -1,2 +1,2 @@
+# Live Stream Face Detection in Opencv and Streamlit
 
-# Face Detection using OpenCV and Streamlit
