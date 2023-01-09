@@ -25,7 +25,7 @@ net = cv2.dnn.readNetFromCaffe('./model/deploy.prototxt',
                                './model/res10_300x300_ssd_iter_140000.caffemodel')
 
 def callback(img):
-    frame = img.to_ndarray(format="bgr")
+    frame = img.to_ndarray(format="bgr24")
     h = frame.shape[0]
     w = frame.shape[1]
     # Flip THE video frame horizontally (not required, just for convenience).
@@ -55,10 +55,13 @@ def callback(img):
                           cv2.FILLED)
             cv2.putText(frame, label, (x1, y1), font_style, font_scale, (0, 0, 0))
 
-    return av.VideoFrame.from_ndarray(frame, format="bgr24")
+        return av.VideoFrame.from_ndarray(frame, format="bgr24")
 
 
-webrtc_streamer(key="example", video_frame_callback=callback)
+webrtc_streamer(key="example", video_frame_callback=callback,media_stream_constraints={
+            "video": True,
+            "audio": False
+        })
 
 
 
