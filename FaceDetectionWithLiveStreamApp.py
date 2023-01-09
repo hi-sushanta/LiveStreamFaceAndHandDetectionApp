@@ -3,7 +3,9 @@ import numpy as np
 import streamlit as st
 import av
 
-from streamlit_webrtc import webrtc_streamer
+from streamlit_webrtc import webrtc_streamer , RTCConfiguration
+
+iceConfiguration = { iceServers: [ { urls: 'turn:my-turn-server.mycompany.com:19403', username: 'optional-username', credentials: 'auth-token' } ] }
 
 st.title("Human Face Detection in Live Stream")
 # Model parameters used to train model.
@@ -61,7 +63,10 @@ def callback(img):
 webrtc_streamer(key="example", video_frame_callback=callback,media_stream_constraints={
             "video": True,
             "audio": False
-        })
+        },
+               rtc_configuration=RTCConfiguration(
+					{"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+					))
 
 
 
