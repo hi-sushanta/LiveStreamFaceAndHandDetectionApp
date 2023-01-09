@@ -61,8 +61,14 @@ def callback(img):
 
 webrtc_streamer(key="example", video_frame_callback=callback,media_stream_constraints={
             "video": True,
+<<<<<<< HEAD
             "audio": False},
             rtc_configuration=RTCConfiguration(
+=======
+            "audio": False
+        },
+               rtc_configuration=RTCConfiguration(
+>>>>>>> 20387a5423add83e9e5438c8b5eaeb5dbdf7512a
 					{"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
 					))
 
