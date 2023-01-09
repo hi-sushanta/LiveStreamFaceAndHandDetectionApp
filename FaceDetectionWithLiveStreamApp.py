@@ -5,7 +5,6 @@ import av
 
 from streamlit_webrtc import webrtc_streamer , RTCConfiguration
 
-iceConfiguration = { iceServers: [ { urls: 'turn:my-turn-server.mycompany.com:19403', username: 'optional-username', credentials: 'auth-token' } ] }
 
 st.title("Human Face Detection in Live Stream")
 # Model parameters used to train model.
