@@ -3,8 +3,7 @@ import numpy as np
 import streamlit as st
 import av
 
-from streamlit_webrtc import webrtc_streamer , RTCConfiguration
-
+from streamlit_webrtc import webrtc_streamer, RTCConfiguration
 
 st.title("Human Face Detection in Live Stream")
 # Model parameters used to train model.
@@ -24,6 +23,7 @@ font_thickness = 1
 one_time_run = 0
 net = cv2.dnn.readNetFromCaffe('./model/deploy.prototxt',
                                './model/res10_300x300_ssd_iter_140000.caffemodel')
+
 
 def callback(img):
     frame = img.to_ndarray(format="bgr24")
@@ -59,12 +59,18 @@ def callback(img):
     return av.VideoFrame.from_ndarray(frame, format="bgr24")
 
 
-webrtc_streamer(key="example", video_frame_callback=callback,media_stream_constraints={
-            "video": True,
-            "audio": False},
-            rtc_configuration=RTCConfiguration(
-					{"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-					))
+webrtc_streamer(key="example", video_frame_callback=callback, media_stream_constraints={
+    "video": True,
+    "audio": False},
+                rtc_configuration=RTCConfiguration(
+                    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+                ))
 
+image_path = "chi.jpg"
 
-
+st.header("FOUNDER OF CHI👨🏻‍💻")
+founder_img = cv2.imread(image_path)
+st.image(founder_img[:, :, ::-1], width=350)
+st.markdown("""We are two brothers **[ ZEN || CHI ]** . Very passionate about learning and building Artificial 
+              Intelligence models. Same as you like to eat your favorite food.**We believe Artificial Intelligence 
+              solved human any problem in the 21st century.**""")
