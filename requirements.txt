@@ -3,3 +3,4 @@ streamlit
 opencv-python-headless
 pillow
 streamlit-webrtc
+mediapipe
