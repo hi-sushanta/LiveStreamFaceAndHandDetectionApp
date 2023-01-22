@@ -7,7 +7,7 @@ import av
 
 from streamlit_webrtc import webrtc_streamer, RTCConfiguration
 
-st.title("Human Face Detection in Live Stream")
+st.title("Human Face And Hand Detection in Live Stream")
 # Model parameters used to train model.
 mean = [104, 117, 123]
 scale = 1.0
